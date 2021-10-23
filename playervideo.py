@@ -22,7 +22,8 @@ while capture.isOpened():
 		#cv2.imwrite('image_decryption/' + str(c) + '.jpg', frame)
 		frame = Encryption_Decryption.HenonEncryption(300,frame,True,(0.1,0.1))
 		#print(frame)
-		print(count+=1,frame_count)
+		count+=1
+		print(count,frame_count)
 		frame = np.array(frame)
 		result.write(frame)
 		#print(frame.shape)
