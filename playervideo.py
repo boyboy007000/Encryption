@@ -9,10 +9,10 @@ fps = capture.get(cv2.CAP_PROP_FPS)      # OpenCV2 version 2 used "CV_CAP_PROP_F
 frame_count = int(capture.get(cv2.CAP_PROP_FRAME_COUNT))
 duration = frame_count/fps
 count = 0
-size = (frame_width, frame_width)
-result = cv2.VideoWriter('filename.mp4', 
-                         cv2.VideoWriter_fourcc(*'MP4V'),
-                         10, size)
+size = (300, 300)
+result = cv2.VideoWriter('filename.avi', 
+                         cv2.VideoWriter_fourcc(*'XVID'),
+                         fps, size)
 if capture.isOpened() == False:
 	print("error")
 while capture.isOpened():
@@ -27,7 +27,7 @@ while capture.isOpened():
 		frame = np.array(frame)
 		result.write(frame)
 		#print(frame.shape)
-		cv2.imshow("frame",frame)
+		#cv2.imshow("frame",frame)
 		if cv2.waitKey(25) & 0xFF == ord('q'):
 			break
 	else:
