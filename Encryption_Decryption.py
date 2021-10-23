@@ -54,8 +54,8 @@ def genHenonMap(dimension, key):
     return TImageMatrix
 def HenonEncryption(dimension,imageMatrix,color,key):
     #imageMatrix, dimension, color = getImageMatrix(imageName)
-    print("hello asdsad")
-    print(dimension)
+    #print("hello asdsad")
+    #print(dimension)
     transformationMatrix = genHenonMap(dimension, key)
     resultantMatrix = []
     for i in range(dimension):

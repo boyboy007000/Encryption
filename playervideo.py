@@ -5,7 +5,10 @@ from PIL import Image
 
 capture = cv2.VideoCapture("output.mp4")
 frame_width = int(capture.get(3))
-
+fps = capture.get(cv2.CAP_PROP_FPS)      # OpenCV2 version 2 used "CV_CAP_PROP_FPS"
+frame_count = int(capture.get(cv2.CAP_PROP_FRAME_COUNT))
+duration = frame_count/fps
+count = 0
 size = (frame_width, frame_width)
 result = cv2.VideoWriter('filename.mp4', 
                          cv2.VideoWriter_fourcc(*'MP4V'),
@@ -17,8 +20,9 @@ while capture.isOpened():
 	#print(frame.shape)
 	if ret:
 		#cv2.imwrite('image_decryption/' + str(c) + '.jpg', frame)
-		frame = Encryption_Decryption.HenonEncryption(frame.shape[0],frame,True,(0.1,0.1))
+		frame = Encryption_Decryption.HenonEncryption(300,frame,True,(0.1,0.1))
 		#print(frame)
+		print(count+=1,frame_count)
 		frame = np.array(frame)
 		result.write(frame)
 		#print(frame.shape)
